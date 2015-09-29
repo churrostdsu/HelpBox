@@ -12,7 +12,7 @@ public class ObjetoBO {
 	// CRUD (Create)
 	public void novoObjeto(Objeto o) throws Exception{
 // pessoa precisa estar cadastrada
-		new ObjetoDAO().addObjeto(o);
+		new ObjetoDAO().addObjeto(o);     
 	}
 
 	// CRUD (Read)
