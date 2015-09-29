@@ -1,0 +1,43 @@
+-- SCRIPT HELPBOX (HB)
+
+----------- Integrante ------------
+-- Beatriz Biserra   | RM : 74656
+-- Hélder Alcantara  | RM : 74504
+-- Thyago Pozzibon   | RM : 75064
+-- Ulric Merguiço    | RM : 73619
+-----------------------------------
+
+-- Exclusão das tabelas e respectivos relacionamentos
+/*
+DROP TABLE T_HB_USUARIO CASCADE CONSTRAINTS ;
+DROP TABLE T_HB_OBJETO CASCADE CONSTRAINTS ;
+COMMIT;
+*/
+
+------ Criação das tabelas
+
+-- Tabela USUARIO
+CREATE TABLE T_HB_USUARIO (
+  cd_usuario NUMBER(5) NOT NULL ,
+  nm_usuario VARCHAR2(20) NOT NULL ,
+  nm_sobrenome VARCHAR2(60) NOT NULL ,
+  nr_cpf NUMBER(11) NOT NULL ,
+  nr_rg VARCHAR2(10) NOT NULL ,
+  dt_nascimento DATE NOT NULL ,
+  ds_endereco VARCHAR2(60) NOT NULL ,
+  nr_cep NUMBER(8) NOT NULL ,
+  nr_telefone NUMBER(13) NOT NULL ,
+  ds_email VARCHAR2(60) NOT NULL ,
+  ds_senha VARCHAR2(60) NOT NULL
+) ;
+
+-- Tabela OBJETO
+CREATE TABLE T_HB_OBJETO (
+  cd_objeto NUMBER(5) NOT NULL ,
+  nm_objeto VARCHAR2(30) NOT NULL ,
+  ds_objeto VARCHAR2(60) NOT NULL ,
+  qt_objeto NUMBER(4) NOT NULL ,
+  ds_estado VARCHAR2(15) NOT NULL ,
+  ds_cor VARCHAR2(20) NOT NULL ,
+  ds_genero VARCHAR2(9) NOT NULL
+) ;  

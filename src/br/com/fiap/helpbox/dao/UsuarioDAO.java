@@ -50,7 +50,7 @@ public class UsuarioDAO {
 			usuario.setNome(resultadoDados.getString("nm_usuario"));
 			usuario.setSobrenome(resultadoDados.getString("nm_sobrenome"));
 			usuario.setCpf(resultadoDados.getInt("nr_cpf"));
-			usuario.setRg(resultadoDados.getString("nt_rg"));
+			usuario.setRg(resultadoDados.getString("nr_rg"));
 			usuario.setDtNascimento(resultadoDados.getString("dt_nascimento"));
 			usuario.setEndereco(resultadoDados.getString("ds_endereco"));
 			usuario.setCep(resultadoDados.getInt("nr_cep"));
@@ -64,9 +64,18 @@ public class UsuarioDAO {
 	}
 
 	// CRUD (Update)
-	public int atualizarSenha(String alterar) throws Exception{
-		PreparedStatement stmt = conexao.prepareStatement("update T_HB_USUARIO set ds_senha");
-		stmt.setString(1, alterar);
+	public int atualizarUsuario(Usuario usuario) throws Exception{
+		PreparedStatement stmt = conexao.prepareStatement("update T_HB_USUARIO set nm_usuario=?, nm_sobrenome=?, nr_cpf=?, nr_rg=?, dt_nascimento=?, ds_endereco=?, nr_cep=?, nr_telefone=?, ds_email=?, ds_senha=? where cd_usuario=?");
+		stmt.setString(1, usuario.getNome());
+		stmt.setString(2, usuario.getSobrenome());
+		stmt.setInt(3, usuario.getCpf());
+		stmt.setString(4, usuario.getRg());
+		stmt.setString(5, usuario.getNome());
+		stmt.setString(6, usuario.getSobrenome());
+		stmt.setString(7, usuario.getNome());
+		stmt.setString(8, usuario.getSobrenome());
+		stmt.setString(9, usuario.getNome());
+		stmt.setString(10, usuario.getSobrenome());
 		int saida = stmt.executeUpdate();
 		stmt.close();
 		return saida;
@@ -92,7 +101,7 @@ public class UsuarioDAO {
 			usuario.setNome(resultadoDados.getString("nm_usuario"));
 			usuario.setSobrenome(resultadoDados.getString("nm_sobrenome"));
 			usuario.setCpf(resultadoDados.getInt("nr_cpf"));
-			usuario.setRg(resultadoDados.getString("nt_rg"));
+			usuario.setRg(resultadoDados.getString("nr_rg"));
 			usuario.setDtNascimento(resultadoDados.getString("dt_nascimento"));
 			usuario.setEndereco(resultadoDados.getString("ds_endereco"));
 			usuario.setCep(resultadoDados.getInt("nr_cep"));
