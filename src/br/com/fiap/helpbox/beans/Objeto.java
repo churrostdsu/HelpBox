@@ -8,7 +8,7 @@ public class Objeto {
 	private int quantidade;
 	private String estado;
 	private String cor;
-	private String genero;	
+	private String genero;	       
 	
 	
 	
