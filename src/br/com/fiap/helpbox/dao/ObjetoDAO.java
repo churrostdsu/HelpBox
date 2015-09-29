@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.helpbox.beans.Objeto;
+import br.com.fiap.helpbox.beans.Usuario;
 import br.com.fiap.helpbox.conexao.ConexaoFactory;
 
 public class ObjetoDAO {
@@ -55,10 +56,17 @@ public class ObjetoDAO {
 		return objeto;
 	}
 
+	
+
 	// CRUD (Update)
-	public int atualizar(String ) throws Exception{
-		PreparedStatement stmt = conexao.prepareStatement("update T_HB_OBJETO set ");
-		stmt.setString(1, );
+	public int atualizarObjeto(Objeto objeto) throws Exception{
+		PreparedStatement stmt = conexao.prepareStatement("update T_HB_OBJETO set nm_objeto=?, ds_objeto=?, qt_objeto=?, ds_estado=?, ds_cor=?, ds_genero=? where cd_objeto=?");
+		stmt.setString(1,objeto.getNome() );
+		stmt.setString(2,objeto.getDescricao() );
+		stmt.setInt(3,objeto.getQuantidade() );
+		stmt.setString(4,objeto.getEstado() );
+		stmt.setString(5,objeto.getCor() );
+		stmt.setString(6,objeto.getGenero() );	
 		int saida = stmt.executeUpdate();
 		stmt.close();
 		return saida;
