@@ -36,6 +36,21 @@ public class Usuario {
 		this.email = email;
 		this.senha = senha;
 	}
+	public Usuario(String nome, String sobrenome, String rg,
+			int cpf, String dtNascimento, String endereco, int cep,
+			int telefone, String email, String senha) {
+		super();
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.rg = rg;
+		this.cpf = cpf;
+		this.dtNascimento = dtNascimento;
+		this.endereco = endereco;
+		this.cep = cep;
+		this.telefone = telefone;
+		this.email = email;
+		this.senha = senha;
+	}
 
 	
 	public int getCodigoUsuario() {

@@ -7,14 +7,23 @@ import br.com.fiap.helpbox.dao.UsuarioDAO;
 
 public class UsuarioBO {
 	
+	UsuarioDAO ud;
+	Usuario ub;
+	
 		// CRUD + List
 
 	// CRUD (Create)
-	public void novoUsuario(Usuario u) throws Exception{
-//		if(u.getDtNascimento()>){
-//			throw new Excecao(
-//		}
-		new UsuarioDAO().addUsuario(u);
+	public boolean novoUsuario(String nome,String sobrenome,int cpf,String rg,String dataNasc,String endereco,int cep,int telefone,String email,String senha) throws Exception{
+		ub= new Usuario(nome,sobrenome,cpf,rg,dataNasc,endereco,cep,telefone,email,senha);
+		ud = new UsuarioDAO();
+		
+		if(ud.addUsuario(nome,sobrenome,cpf,rg,dataNasc,endereco,cep,telefone,email,senha)==true){
+			return true;
+		}else{
+			return false;
+		}
+
+		
 	}
 	
 	// CRUD (Read)

@@ -189,7 +189,9 @@
 					<h3>Realise seu cadastro e doe!</h3>
 					<p> Com sua doação ajudenos a ajudar, faça pessoas felizes!</p>
 					<p>
-						<form class="form-horizontal" role="form">
+						<form class="form-horizontal" role="form" action="Servlet01">
+							
+							<input type="hidden" name="cadastro" value="cadastro"/>
 							<div class="form-group">
 						    <label for="text1" class="col-lg-4 control-label"></label>
 						    <div class="col-lg-10">

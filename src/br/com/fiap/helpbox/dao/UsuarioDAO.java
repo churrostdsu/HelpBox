@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.helpbox.beans.Usuario;
+import br.com.fiap.helpbox.bo.String;
 import br.com.fiap.helpbox.conexao.ConexaoFactory;
 
 public class UsuarioDAO {
@@ -19,24 +20,38 @@ public class UsuarioDAO {
 
 
 		// CRUD + List
-
-	// CRUD (Create)
-	public void addUsuario(Usuario u) throws Exception{
-		String sql = "insert into T_HB_USUARIO " + "(cd_usuario, nm_usuario, nm_sobrenome, nr_cpf, nr_rg, dt_nascimento, ds_endereco, nr_cep, nr_telefone, ds_email, ds_senha) values (?,?,?,?,?,?,?,?,?,?,?)";
+	public void acrescentadorID(){
+		String sql = "SELECT cd_usuario FROM T_HB_USUARIO";
 		PreparedStatement estrutura = conexao.prepareStatement(sql);
-		estrutura.setInt(1, u.getCodigoUsuario());
-		estrutura.setString(2, u.getNome());
-		estrutura.setString(3, u.getSobrenome());
-		estrutura.setString(4, u.getRg());
-		estrutura.setInt(5, u.getCpf());
-		estrutura.setString(6, u.getDtNascimento());
-		estrutura.setString(7, u.getEndereco());
-		estrutura.setInt(8, u.getCep());
-		estrutura.setInt(9, u.getTelefone());
-		estrutura.setString(10, u.getEmail());
-		estrutura.setString(11, u.getSenha());
+		ResultSet resultadoCod = estrutura.executeQuery();
+		int cod;
+		
+		if(resultadoCod.next()){
+			cod = estrutura.setInt(resultadoCod.getInt("cd_usuario"));
+			cod = cod++;
+		}
+	}
+	
+	// CRUD (Create)
+	public boolean addUsuario(String nome,String sobrenome,int cpf,String rg,String dataNasc,String endereco,int cep,int telefone,String email,String senha) throws Exception{
+		String sql = "insert into T_HB_USUARIO " + "(cd_usuario,nm_usuario, nm_sobrenome, nr_cpf, nr_rg, dt_nascimento, ds_endereco, nr_cep, nr_telefone, ds_email, ds_senha) values (?,?,?,?,?,?,?,?,?,?)";
+		
+		PreparedStatement estrutura = conexao.prepareStatement(sql);
+		
+		estrutura.setInt(1,acrescentadorID());
+		estrutura.setString(2, nome);
+		estrutura.setString(3, sobrenome);
+		estrutura.setInt(4, cpf);
+		estrutura.setString(5, rg);
+		estrutura.setString(6, dataNasc);
+		estrutura.setString(7, endereco);
+		estrutura.setInt(8, cep);
+		estrutura.setInt(9, telefone);
+		estrutura.setString(10, email);
+		estrutura.setString(11, senha);
 		estrutura.execute();
 		estrutura.close();
+		return true;
 	}
 
 	// CRUD (Read)
