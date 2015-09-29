@@ -70,12 +70,12 @@ public class UsuarioDAO {
 		stmt.setString(2, usuario.getSobrenome());
 		stmt.setInt(3, usuario.getCpf());
 		stmt.setString(4, usuario.getRg());
-		stmt.setString(5, usuario.getNome());
-		stmt.setString(6, usuario.getSobrenome());
-		stmt.setString(7, usuario.getNome());
-		stmt.setString(8, usuario.getSobrenome());
-		stmt.setString(9, usuario.getNome());
-		stmt.setString(10, usuario.getSobrenome());
+		stmt.setString(5, usuario.getDtNascimento());
+		stmt.setString(6, usuario.getEndereco());
+		stmt.setInt(7, usuario.getCep());
+		stmt.setInt(8, usuario.getTelefone());
+		stmt.setString(9, usuario.getEmail());
+		stmt.setString(10, usuario.getSenha());
 		int saida = stmt.executeUpdate();
 		stmt.close();
 		return saida;

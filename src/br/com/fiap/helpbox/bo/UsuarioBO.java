@@ -23,8 +23,8 @@ public class UsuarioBO {
 	}
 	
 	// CRUD (Update)
-	public int alterarSenha(String u) throws Exception{
-		return new UsuarioDAO().atualizarSenha(u);
+	public int alterarUsuario(Usuario u) throws Exception{
+		return new UsuarioDAO().atualizarUsuario(u);
 	}
 	
 	// CRUD (Delete)

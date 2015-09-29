@@ -56,8 +56,6 @@ public class ObjetoDAO {
 		return objeto;
 	}
 
-	
-
 	// CRUD (Update)
 	public int atualizarObjeto(Objeto objeto) throws Exception{
 		PreparedStatement stmt = conexao.prepareStatement("update T_HB_OBJETO set nm_objeto=?, ds_objeto=?, qt_objeto=?, ds_estado=?, ds_cor=?, ds_genero=? where cd_objeto=?");
@@ -73,9 +71,9 @@ public class ObjetoDAO {
 	}
 
 	// CRUD (Delete)
-	public int deletarObjeto(String x) throws Exception{
+	public int deletarObjeto(int x) throws Exception{
 		PreparedStatement stmt = conexao.prepareStatement("delete from T_HB_OBJETO where cd_objeto=?");
-		stmt.setString(1, x);
+		stmt.setInt(1, x);
 		int saida = stmt.executeUpdate();
 		stmt.close();
 		return saida;
